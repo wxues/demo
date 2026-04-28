@@ -1,0 +1,19 @@
+name: JianghuQunxiaZhuanReborn
+options:
+  minimumXcodeGenVersion: 2.42.0
+targets:
+  JianghuQunxiaZhuanReborn:
+    type: application
+    platform: iOS
+    deploymentTarget: "17.0"
+    sources:
+      - App
+      - Core
+      - Systems
+      - Resources
+    info:
+      path: Generated/Info.plist
+      properties:
+        CFBundleDisplayName: Jianghu Reborn
+        UISupportedInterfaceOrientations:
+          - UIInterfaceOrientationPortrait
