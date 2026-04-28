@@ -53,3 +53,94 @@ struct LocationAction: Codable, Identifiable, Hashable {
 enum ActionKind: String, Codable {
     case story, explore, rest, train, shop, battle, school, life
 }
+
+struct Actor: Codable, Identifiable, Hashable {
+    var id: String
+    var name: String
+    var role: String
+    var portrait: String
+    var level: Int
+    var hp: Int
+    var mp: Int
+    var attack: Int
+    var defense: Int
+    var speed: Int
+    var affinity: Int
+    var tags: [String]
+}
+
+struct MartialSkill: Codable, Identifiable, Hashable {
+    var id: String
+    var name: String
+    var school: String?
+    var category: String
+    var power: Int
+    var mpCost: Int
+    var maxLevel: Int
+    var effect: String
+    var learnRequirement: String?
+}
+
+struct GameItem: Codable, Identifiable, Hashable {
+    var id: String
+    var name: String
+    var kind: String
+    var price: Int
+    var description: String
+    var effect: String?
+}
+
+struct GameEvent: Codable, Identifiable, Hashable {
+    var id: String
+    var title: String
+    var speaker: String
+    var text: String
+    var choices: [EventChoice]
+}
+
+struct EventChoice: Codable, Identifiable, Hashable {
+    var id: String
+    var text: String
+    var result: String
+    var moneyDelta: Int
+    var reputationDelta: Int
+    var moralityDelta: Int
+    var flagToSet: String?
+    var battleId: String?
+    var rewardItemId: String?
+    var recruitActorId: String?
+    var learnSkillId: String?
+}
+
+struct School: Codable, Identifiable, Hashable {
+    var id: String
+    var name: String
+    var alignment: String
+    var master: String
+    var entryFlag: String?
+    var skills: [String]
+    var description: String
+}
+
+struct Shop: Codable, Identifiable, Hashable {
+    var id: String
+    var name: String
+    var nodeId: String
+    var itemIds: [String]
+}
+
+struct BattleTemplate: Codable, Identifiable, Hashable {
+    var id: String
+    var name: String
+    var enemyIds: [String]
+    var winFlag: String?
+    var rewardMoney: Int
+    var rewardReputation: Int
+}
+
+struct BattleState: Identifiable, Hashable {
+    let id = UUID()
+    var template: BattleTemplate
+    var log: [String]
+    var enemyHP: Int
+}
