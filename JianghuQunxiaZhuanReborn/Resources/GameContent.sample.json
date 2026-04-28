@@ -1,0 +1,11 @@
+{
+  "note": "Runtime content is currently generated in JY3Engine+Content.swift. This file documents the future external data-pack shape.",
+  "world": [],
+  "actors": [],
+  "skills": [],
+  "items": [],
+  "events": [],
+  "schools": [],
+  "shops": [],
+  "battles": []
+}
