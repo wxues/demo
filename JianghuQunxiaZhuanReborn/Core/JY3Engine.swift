@@ -1,4 +1,5 @@
 import Foundation
+import Combine
 
 final class JY3Engine: ObservableObject {
     @Published var content: GameContent
@@ -92,7 +93,9 @@ final class JY3Engine: ObservableObject {
 
     func attackInBattle() {
         guard var b = battle else { return }
-        let heroPower = party.map { $0.attack }.reduce(0, +) + knownSkills.map { $0.power }.max() ?? 10
+        let partyAttack = party.map { $0.attack }.reduce(0, +)
+        let bestSkillPower = knownSkills.map { $0.power }.max() ?? 10
+        let heroPower = partyAttack + bestSkillPower
         let damage = max(12, heroPower / 2 + Int.random(in: 5...18))
         b.enemyHP -= damage
         b.log.append("Your party deals \(damage) damage.")
